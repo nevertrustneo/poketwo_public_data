@@ -16,7 +16,7 @@ def isnumber(v):
 def get_data_from(filename):
     path = Path(__file__).parent / "csv" / filename
 
-    with open(path) as f:
+    with open(path, encoding="utf-8") as f:
         reader = csv.DictReader(f)
         data = list(
             {k: int(v) if isnumber(v) else v for k, v in row.items() if v != ""}
