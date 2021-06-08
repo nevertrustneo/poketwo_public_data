@@ -15,7 +15,7 @@ STAT_STAGE_MULTIPLIERS = {
 }
 
 MOVE_META_CATEGORIES = [
-    "Inflicts damage",
+    "Fügt Schaden zu",
     "No damage; inflicts status ailment",
     "No damage; lowers target's stats or raises user's stats",
     "No damage; heals the user",
