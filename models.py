@@ -745,6 +745,13 @@ class DataManagerBase:
                 )
             )
         except StopIteration:
+            # DEBUG Output for NTN START
+            print("Pokemon Action '%s' konnte nicht gefunden werden!" % name)
+            for move_entry in self.moves.values():
+                print("Action Debug Search: '%s' =?= Found: '%s' | %s %s %s" % (
+                    name.lower().replace("′", "'"), move_entry.name.lower(), len(move_entry.name), len(name),
+                    name.lower().replace("′", "'") == move_entry.name.lower()))
+            # DEBUG Output for NTN END
             return None
 
     def random_spawn(self, rarity="normal"):
