@@ -4,11 +4,14 @@ import unicodedata
 from abc import ABC
 from dataclasses import dataclass
 from functools import cached_property
-from typing import Union
+from typing import Union, List, Optional
 from . import constants
 
 
 def deaccent(text):
+    # Simplified for NTN
+    text = text.lower().replace("′", "'")
+    # Simplified for NTN
     norm = unicodedata.normalize("NFD", text)
     result = "".join(ch for ch in norm if unicodedata.category(ch) != "Mn")
     return unicodedata.normalize("NFC", result)
@@ -575,7 +578,7 @@ class Species:
             extra.extend(self.instance.pokemon[self.dex_number].correct_guesses)
         if "nidoran" in self.slug:
             extra.append("nidoran")
-        return extra + [deaccent(x.lower()) for _, x in self.names] + [self.slug]
+        return extra + [deaccent(x) for _, x in self.names] + [self.slug]
 
     @cached_property
     def trade_evolutions(self):
@@ -676,35 +679,40 @@ class DataManagerBase:
     def all_items(self):
         return self.items.values()
 
-    def all_species_by_number(self, number: int) -> Species:
+    def all_species_by_number(self, number: int) -> List[Species]:
         return [x for x in self.pokemon.values() if x.dex_number == number]
 
-    def all_species_by_name(self, name: str) -> Species:
+    def all_species_by_name(self, name: str) -> List[Species]:
+        # Changed for NTN
+        name = deaccent(name)
+
         return [
             x
             for x in self.pokemon.values()
-            if deaccent(name.lower().replace("′", "'")) in x.correct_guesses
+            if name in [deaccent(specie) for specie in x.correct_guesses]
         ]
 
-    def find_all_matches(self, name: str) -> Species:
+    def find_all_matches(self, name: str) -> List[int]:
         return [
             y.id
             for x in self.all_species_by_name(name)
             for y in self.all_species_by_number(x.id)
         ]
 
-    def species_by_number(self, number: int) -> Species:
+    def species_by_number(self, number: int) -> Optional[Species]:
         try:
             return self.pokemon[number]
         except KeyError:
             return None
 
     def species_by_name(self, name: str) -> Species:
+        # Changed for NTN
+        name = deaccent(name)
+
         try:
             return next(
                 filter(
-                    lambda x: deaccent(name.lower().replace("′", "'"))
-                    in x.correct_guesses,
+                    lambda x: name in [deaccent(specie) for specie in x.correct_guesses],
                     self.pokemon.values(),
                 )
             )
@@ -718,11 +726,13 @@ class DataManagerBase:
             return None
 
     def item_by_name(self, name: str) -> Item:
+        # Changed for NTN
+        name = deaccent(name)
+
         try:
             return next(
                 filter(
-                    lambda x: deaccent(name.lower().replace("′", "'"))
-                    == x.name.lower(),
+                    lambda x: name == deaccent(x.name),
                     self.items.values(),
                 )
             )
@@ -736,22 +746,17 @@ class DataManagerBase:
             return None
 
     def move_by_name(self, name: str) -> Move:
+        # Changed for NTN
+        name = deaccent(name)
+
         try:
             return next(
                 filter(
-                    lambda x: deaccent(name.lower().replace("′", "'"))
-                    == x.name.lower(),
+                    lambda x: name == deaccent(x.name),
                     self.moves.values(),
                 )
             )
         except StopIteration:
-            # DEBUG Output for NTN START
-            print("Pokemon Action '%s' konnte nicht gefunden werden!" % name)
-            for move_entry in self.moves.values():
-                print("Action Debug Search: '%s' =?= Found: '%s' | %s %s %s" % (
-                    name.lower().replace("′", "'"), move_entry.name.lower(), len(move_entry.name), len(name),
-                    name.lower().replace("′", "'") == move_entry.name.lower()))
-            # DEBUG Output for NTN END
             return None
 
     def random_spawn(self, rarity="normal"):
