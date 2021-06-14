@@ -1,3 +1,4 @@
+import logging
 import typing
 import random
 import unicodedata
@@ -531,7 +532,14 @@ class Species:
     instance: typing.Any = UnregisteredDataManager()
 
     def __post_init__(self):
-        self.name = next(filter(lambda x: x[0] == "🇬🇧", self.names))[1]
+        # Changed to German Language with Fallback for English Names for NTN
+        name_entry = next(filter(lambda x: x[0] == "🇩🇪", self.names), None)
+
+        if not name_entry:
+            logging.getLogger().warning(f"The Pokemon with names {self.names} has no German Translation")
+            name_entry = next(filter(lambda x: x[0] == "🇬🇧", self.names))
+
+        self.name = name_entry[1]
         if self.moves is None:
             self.moves = []
 
