@@ -1,9 +1,9 @@
 id,name,description,cost,shard,action,page,emote,separate
-10001,XP Booster 0,Verdoppelt deine XP für 30 Minuten!,20,,xpboost_30,1,,1
-10002,XP Booster 1,Verdoppelt deine XP für 1 Stunde!,40,,xpboost_60,1,,1
-10003,XP Booster 2,Verdoppelt deine XP für 2 Stunden!,70,,xpboost_120,1,,1
-10004,XP Booster 3,Verdoppelt deine XP für 3 Stunden!,100,,xpboost_180,1,,1
-10005,Sonderbonbon,Erhöht das Level deines Pokémon um eins!,75,,level,1,candy_rare,1
+10001,XP Booster 0,Verdoppelt deine XP für 30 Minuten!,35,,xpboost_30,1,ntn_shop_xp_booster_0,1
+10002,XP Booster 1,Verdoppelt deine XP für 1 Stunde!,60,,xpboost_60,1,ntn_shop_xp_booster_1,1
+10003,XP Booster 2,Verdoppelt deine XP für 2 Stunden!,110,,xpboost_120,1,ntn_shop_xp_booster_2,1
+10004,XP Booster 3,Verdoppelt deine XP für 3 Stunden!,150,,xpboost_180,1,ntn_shop_xp_booster_3,1
+10005,Sonderbonbon,Erhöht das Level deines Pokémon um eins!,125,,level,1,candy_rare,1
 80,Sonnenstein,,150,,evolve_normal,2,stone_sun,
 81,Mondstein,,150,,evolve_normal,2,stone_moon,
 82,Feuerstein,,150,,evolve_normal,2,stone_fire,
@@ -89,7 +89,7 @@ id,name,description,cost,shard,action,page,emote,separate
 12001,Mega Evolution,Transformiert dein Pokémon in seine Mega-Form!,1000,,evolve_mega,6,,1
 12002,Mega Evolution X,Transformiert dein Pokémon in seine X Mega-Form!,1000,,evolve_megax,6,,1
 12003,Mega Evolution Y,Transformiert dein Pokémon in seine Y Mega-Form!,1000,,evolve_megay,6,,1
-15002,Gutschein,Spawnt ein Fangbares Pokémon deiner Wahl.,200,1,redeem,7,,1
-15003,Lockmodul,Spawnt für eine Stunde alle 30 Sekunden ein Pokémon.,50,1,incense,7,,1
-15004,Schillerpin,Erhöht deine Shiny-Rate für eine Woche um 20%.,150,1,shiny_charm,7,,1
-15005,Pokecoin,Du bekommst einmalig 200 Pokécoin.,50,1,pokecoin,9,,
+15002,Gutschein,Spawnt ein Fangbares Pokémon deiner Wahl.,200,1,redeem,7,ntn_shop_gutschein,1
+15003,Lockmodul,Spawnt für eine Stunde alle 30 Sekunden ein Pokémon.,50,1,incense,7,ntn_shop_lockmodul,1
+15004,Schillerpin,Erhöht deine Shiny-Rate für eine Woche um 20%.,150,1,shiny_charm,7,ntn_shop_schillerpon,1
+15005,Pokecoin,Du bekommst einmalig 200 Pokécoin.,50,1,pokecoin,9,ntn_shop_pokecoin,
