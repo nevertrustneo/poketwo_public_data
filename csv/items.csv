@@ -43,8 +43,8 @@ id,name,description,cost,shard,action,page,emote,separate
 687,Duftbeutel,,150,,held_item,4,item_sachet,
 11001,Hart-Minze,"+10% Attack
 -10% Sp. Atk",50,,nature_0,5,mint_atk,
-11002,Schüchtern-Minze,Kein Effekt,50,,nature_1,5,mint_serious,
-11003,Bold-Minze,"+10% Defense
+11002,Zaghaft-Minze,Kein Effekt,50,,nature_1,5,mint_serious,
+11003,Kühn-Minze,"+10% Defense
 -10% Attack",50,,nature_2,5,mint_def,
 11004,Mutig-Minze,"+10% Attack
 -10% Speed",50,,nature_3,5,mint_atk,
@@ -52,10 +52,10 @@ id,name,description,cost,shard,action,page,emote,separate
 -10% Attack",50,,nature_4,5,mint_spdef,
 11006,Sacht-Minze,"+10% Sp. Def
 -10% Sp. Atk",50,,nature_5,5,mint_spdef,
-11007,Fügsam-Minze,Kein Effekt,50,,nature_6,5,mint_serious,
+11007,Sanft-Minze,Kein Effekt,50,,nature_6,5,mint_serious,
 11008,Zart-Minze,"+10% Sp. Def
 -10% Defense",50,,nature_7,5,mint_spdef,
-11009,Zäh-Minze,Kein Effekt,50,,nature_8,5,mint_serious,
+11009,Robust-Minze,Kein Effekt,50,,nature_8,5,mint_serious,
 11010,Hastig-Minze,"+10% Speed
 -10% Defense",50,,nature_9,5,mint_spd,
 11011,Pfiffig-Minze,"+10% Defense
@@ -76,7 +76,7 @@ id,name,description,cost,shard,action,page,emote,separate
 -10% Sp. Def",50,,nature_17,5,mint_atk,
 11019,Ruhig-Minze,"+10% Sp. Atk
 -10% Speed",50,,nature_18,5,mint_spatk,
-11020,Sonder-Minze,Kein Effekt,50,,nature_19,5,mint_serious,
+11020,Kauzig-Minze,Kein Effekt,50,,nature_19,5,mint_serious,
 11021,Hitzig-Minze,"+10% Sp. Atk
 -10% Sp. Def",50,,nature_20,5,mint_spatk,
 11022,Locker-Minze,"+10% Defense
